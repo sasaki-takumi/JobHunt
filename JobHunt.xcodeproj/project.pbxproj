@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A8B0481A458CE100B92804 /* SwipeBetweenViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8B0471A458CE100B92804 /* SwipeBetweenViewControllers.swift */; };
 		63CC2E131A45224A00945AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC2E121A45224A00945AB4 /* AppDelegate.swift */; };
 		63CC2E151A45224A00945AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC2E141A45224A00945AB4 /* ViewController.swift */; };
 		63CC2E181A45224A00945AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CC2E161A45224A00945AB4 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18A8B0471A458CE100B92804 /* SwipeBetweenViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBetweenViewControllers.swift; sourceTree = "<group>"; };
 		63CC2E0D1A45224A00945AB4 /* JobHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CC2E111A45224A00945AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CC2E121A45224A00945AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				63CC2E191A45224A00945AB4 /* Images.xcassets */,
 				63CC2E1B1A45224A00945AB4 /* LaunchScreen.xib */,
 				63CC2E101A45224A00945AB4 /* Supporting Files */,
+				18A8B0471A458CE100B92804 /* SwipeBetweenViewControllers.swift */,
 			);
 			path = JobHunt;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A8B0481A458CE100B92804 /* SwipeBetweenViewControllers.swift in Sources */,
 				AA9561EE1A455F180027361A /* JHArticle.swift in Sources */,
 				63CC2E151A45224A00945AB4 /* ViewController.swift in Sources */,
 				AA9561EA1A4542670027361A /* JHHTTPConnecter.swift in Sources */,
