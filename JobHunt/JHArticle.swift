@@ -9,5 +9,14 @@
 import UIKit
 
 class JHArticle: NSObject {
+    
+    var articleId:String, articleTitle:String,articleAbstract:String, articleThumUrl:String
+    
+    init(articleId:String, articleTitle:String, articleAbstract:String, articleThumUrl:String){
+        self.articleId = articleId
+        self.articleTitle = articleTitle
+        self.articleAbstract = articleAbstract
+        self.articleThumUrl = articleThumUrl
+    }
    
 }

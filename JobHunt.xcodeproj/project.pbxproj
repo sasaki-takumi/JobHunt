@@ -15,6 +15,9 @@
 		63CC2E291A45224A00945AB4 /* JobHuntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC2E281A45224A00945AB4 /* JobHuntTests.swift */; };
 		AA9561E51A453DEA0027361A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9561E21A453DC70027361A /* Alamofire.framework */; };
 		AA9561E71A453E2B0027361A /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA9561E21A453DC70027361A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA9561EA1A4542670027361A /* JHHTTPConnecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561E91A4542670027361A /* JHHTTPConnecter.swift */; };
+		AA9561EE1A455F180027361A /* JHArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561ED1A455F180027361A /* JHArticle.swift */; };
+		AA9561F01A456F520027361A /* JHCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561EF1A456F520027361A /* JHCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		63CC2E271A45224A00945AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CC2E281A45224A00945AB4 /* JobHuntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobHuntTests.swift; sourceTree = "<group>"; };
 		AA9561DC1A453DC70027361A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		AA9561E91A4542670027361A /* JHHTTPConnecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHHTTPConnecter.swift; sourceTree = "<group>"; };
+		AA9561ED1A455F180027361A /* JHArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHArticle.swift; sourceTree = "<group>"; };
+		AA9561EF1A456F520027361A /* JHCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,9 @@
 				AA9561DC1A453DC70027361A /* Alamofire.xcodeproj */,
 				63CC2E121A45224A00945AB4 /* AppDelegate.swift */,
 				63CC2E141A45224A00945AB4 /* ViewController.swift */,
+				AA9561EF1A456F520027361A /* JHCustomCell.swift */,
+				AA9561E91A4542670027361A /* JHHTTPConnecter.swift */,
+				AA9561ED1A455F180027361A /* JHArticle.swift */,
 				63CC2E161A45224A00945AB4 /* Main.storyboard */,
 				63CC2E191A45224A00945AB4 /* Images.xcassets */,
 				63CC2E1B1A45224A00945AB4 /* LaunchScreen.xib */,
@@ -277,8 +286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9561EE1A455F180027361A /* JHArticle.swift in Sources */,
 				63CC2E151A45224A00945AB4 /* ViewController.swift in Sources */,
+				AA9561EA1A4542670027361A /* JHHTTPConnecter.swift in Sources */,
 				63CC2E131A45224A00945AB4 /* AppDelegate.swift in Sources */,
+				AA9561F01A456F520027361A /* JHCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
