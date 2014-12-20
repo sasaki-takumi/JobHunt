@@ -20,8 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var navigationController:SwipeBetweenViewControllers = SwipeBetweenViewControllers(rootViewController: pageController)
         
+        let storyboad = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        
         // Override point for customization after application launch.
-        var demo:UIViewController = UIViewController()
+        var demo:UIViewController = storyboad.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
         var demo2:UIViewController = UIViewController()
         var demo3:UIViewController = UIViewController()
         var demo4:UIViewController = UIViewController()
