@@ -202,7 +202,11 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
             println("notempty")
             var article:JHArticle = self.articleArray[indexPath.row]
             
-            var detailViewController:DetailViewController = DetailViewController();
+            let storyboad = UIStoryboard(name: "Main", bundle: nil)
+
+
+            var detailViewController:DetailViewController = storyboad.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+            
             detailViewController.articleId = article.articleId
                 self.navigationController?.pushViewController(detailViewController, animated: true)
         }

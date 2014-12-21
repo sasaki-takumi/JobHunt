@@ -11,21 +11,36 @@ import Alamofire
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet var abstractView:UITextView!
+    @IBOutlet var titleLabel:UILabel!
+    @IBOutlet var image:UIImageView!
+    @IBOutlet var contentView:UITextView!
+    @IBOutlet var scrollView:UIScrollView!
+    
     var articleId:String = String()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.blueColor()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         
         self.getArticle(self.articleId)
+        
         
         
         
         // Do any additional setup after loading the view.
     }
 
+     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1500)
+
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,14 +59,43 @@ class DetailViewController: UIViewController {
 //                println(JSON)
                 
                 if let articleInfo:Dictionary = JSON as? Dictionary<String,AnyObject>{
-//                    println( articleInfo["data"])
                     
                     if let datas:Array = articleInfo["data"] as? Array<AnyObject>{
                         
+//                        println(datas)
+                        
+                        if let dic:Dictionary = datas[0] as? Dictionary<String,AnyObject>{
+                            
+                            var abstract:String = dic["article_abstract"] as String
+                            var title:String = dic["article_title"] as String
+//
+                            var contentHtml:String = dic["content"] as String
+                            
+                            
+                            var topimg:String = dic["article_topimg"] as String
+                            
+                            println(contentHtml)
+                            
+                            
+                            self.abstractView.text = abstract
+                            self.titleLabel.text = title
+                            self.contentView.text = contentHtml
+                            
+                            let url = NSURL(string:topimg);
+                            
+                            let req = NSURLRequest(URL:url!)
+                            
+                            NSURLConnection.sendAsynchronousRequest(req, queue:NSOperationQueue.mainQueue()){(res, data, err) in
+                                let image = UIImage(data:data)
+                                self.image.image = image
+                                // 画像に対する処理 (UcellのUIImageViewに表示する等)
+                            }
+                            
+                        }
+
                         
                         
                         
-                        for data in datas{
 //                            println("daatataa")
                             
                             //                            println(data)
@@ -64,7 +108,6 @@ class DetailViewController: UIViewController {
 //                                articleTitle: data["article_title"] as String,
 //                                articleAbstract: data["article_abstract"] as String,
 //                                articleThumUrl: data["article_topimg"] as String)
-                        }
                     }
                 }else{
                     println("NO")
