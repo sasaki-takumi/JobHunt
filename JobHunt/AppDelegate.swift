@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+       
+        
+        
         var pageController:UIPageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
         
         var navigationController:SwipeBetweenViewControllers = SwipeBetweenViewControllers(rootViewController: pageController)
@@ -25,20 +28,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Override point for customization after application launch.
-        var demo:UIViewController = storyboad.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
-        var demo2:UIViewController = UIViewController()
-        var demo3:UIViewController = UIViewController()
-        var demo4:UIViewController = UIViewController()
-        var demo5:UIViewController = UIViewController()
+        var demo:ViewController = storyboad.instantiateViewControllerWithIdentifier("ViewController") as ViewController
+        demo.guidesiteId = "1928"
+//        demo.type = ViewController.genreType.Nouhau
+        
+        var demo2:ViewController = storyboad.instantiateViewControllerWithIdentifier("ViewController") as ViewController
+        demo2.guidesiteId = "1899"
+//        demo2.type = ViewController.genreType.Girls
+//        demo2.isForGirls = true
+        
+        var demo3:ViewController = storyboad.instantiateViewControllerWithIdentifier("ViewController") as ViewController
+        demo3.guidesiteId = "1903"
+//        demo3.type = ViewController.genreType.Fasshion
+        var demo4:ViewController = storyboad.instantiateViewControllerWithIdentifier("ViewController") as ViewController
+        demo4.guidesiteId = "1810"
+//        demo4.type = ViewController.genreType.Kaihuku
+        
+        //        var demo5:UIViewController = UIViewController()
         demo.view.backgroundColor = UIColor.redColor()
         demo2.view.backgroundColor = UIColor.whiteColor()
         demo3.view.backgroundColor = UIColor.grayColor()
         demo4.view.backgroundColor = UIColor.orangeColor()
-        demo5.view.backgroundColor = UIColor.brownColor()
+//        demo5.view.backgroundColor = UIColor.brownColor()
         
-        navigationController.viewControllerArray = [demo,demo2,demo3,demo4,demo5]
-        
+        navigationController.viewControllerArray = [demo,demo2,demo3,demo4]
+        navigationController.buttonText = ["ノウハウ","キャリア","マナー","疲労回復"]
         self.window?.rootViewController = navigationController
+        
+        
+        
+         ASFSharedViewTransition.addTransitionWithFromViewControllerClass(ViewController.self, toViewControllerClass: DetailViewController.self, withNavigationController: self.window?.rootViewController as UINavigationController, withDuration: 0.2)
+        
         self.window?.makeKeyAndVisible()
         return true
     }

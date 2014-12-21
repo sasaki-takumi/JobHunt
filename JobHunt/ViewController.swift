@@ -14,15 +14,28 @@ import Alamofire
 class ViewController: UIViewController, UICollectionViewDataSource ,UICollectionViewDelegate {
     @IBOutlet var nouhauCollectionView:UICollectionView!
     
-    var articleArray = [JHArticle]();
+    enum genreType:Int{
+        case Nouhau
+        case Fasshion
+        case Girls
+        case Kaihuku
+    }
     
+    var articleArray = [JHArticle]();
+    var guidesiteId:String = String();
+    
+    var type:genreType = genreType.Fasshion
+    
+//    var isForGirls :Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        JHHTTPConnecter.sharedInstance.requestGuidesideWithGuideId("1928")
 //        self.nouhauCollectionView.registerClass(JHCustomCell.self, forCellWithReuseIdentifier: "cell")
         
-        getGuidesites("1928");
+//        getGuidesites("1928");
+        getGuidesites(self.guidesiteId);
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,13 +51,19 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
     func getGuidesites(guideId:String){
         
         var urlStr:URLStringConvertible = "http://api.allabout.co.jp/allabout/guidesite/latest/\(guideId)"
+//        if self.isForGirls == true{
+//            urlStr = "http://api.allabout.co.jp/allabout/guidesite/latest/\(guideId)/70"
+//            println("forgirls")
+//        }else{
+//            
+//        }
         
         Alamofire.request(.GET, urlStr)
             .responseJSON { (request, response, JSON, error) -> Void in
 //                println(JSON)
                 
                 if let guidsitesInfo:Dictionary = JSON as? Dictionary<String,AnyObject>{
-                    println("YES")
+//                    println("YES")
 
 //                    println(guidsitesInfo["data"]);
                     
@@ -55,12 +74,61 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
                             
                             var id:Int = data["article_id"] as Int
                             var id_str = String(id)
+                        /*
                             
+                            switch self.type{
+                            case .Nouhau:
+                                var title:NSString = data["article_title"] as NSString
+                                var girl:String = String("女子")
+                                var range:NSRange = title.rangeOfString(girl)
+                                if range.location == NSNotFound{
+                                    let article:JHArticle = JHArticle(articleId: id_str as String,
+                                        articleTitle: data["article_title"] as String,
+                                        articleAbstract: data["article_abstract"] as String,
+                                        articleThumUrl: data["article_topimg"] as String)
+                                    self.articleArray.append(article);
+                                }
+                                break
+                                
+                            case .Girls:
+                                var title:NSString = data["article_title"] as NSString
+                                var girl:String = String("女子")
+                                var range:NSRange = title.rangeOfString(girl)
+                                if range.location != NSNotFound{
+                                    let article:JHArticle = JHArticle(articleId: id_str as String,
+                                        articleTitle: data["article_title"] as String,
+                                        articleAbstract: data["article_abstract"] as String,
+                                        articleThumUrl: data["article_topimg"] as String)
+                                    self.articleArray.append(article);
+                                }
+                                break
+                                
+                            case .Fasshion:
+                                let article:JHArticle = JHArticle(articleId: id_str as String,
+                                    articleTitle: data["article_title"] as String,
+                                    articleAbstract: data["article_abstract"] as String,
+                                    articleThumUrl: data["article_topimg"] as String)
+                                self.articleArray.append(article);
+                                break
+                                
+                            case .Kaihuku:
+                                let article:JHArticle = JHArticle(articleId: id_str as String,
+                                    articleTitle: data["article_title"] as String,
+                                    articleAbstract: data["article_abstract"] as String,
+                                    articleThumUrl: data["article_topimg"] as String)
+                                self.articleArray.append(article);
+                                break
+                                
+                            }
+                            */
                             let article:JHArticle = JHArticle(articleId: id_str as String,
                                 articleTitle: data["article_title"] as String,
                                 articleAbstract: data["article_abstract"] as String,
                                 articleThumUrl: data["article_topimg"] as String)
+                            self.articleArray.append(article);
                             
+                            
+
                             
 //                            println("id \(article.articleId)")
 //                            println("title \(article.articleTitle)")
@@ -68,7 +136,6 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
 //                            println("thum \(article.articleThumUrl)")
 
                             
-                            self.articleArray.append(article);
                             
 //                            println(self.articleArray)
 
@@ -97,9 +164,9 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
         
         if self.articleArray.isEmpty{
 //            cell.title.text = String("TEST")
-            println("empty")
+//            println("empty")
         }else{
-            println("notempty")
+//            println("notempty")
             var article:JHArticle = self.articleArray[indexPath.row]
             cell.title.text = article.articleTitle
             
@@ -128,10 +195,24 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        if self.articleArray.isEmpty{
+            //            cell.title.text = String("TEST")
+            println("empty")
+        }else{
+            println("notempty")
+            var article:JHArticle = self.articleArray[indexPath.row]
+            
+            var detailViewController:DetailViewController = DetailViewController();
+            detailViewController.articleId = article.articleId
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+
+        
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.articleArray.count
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

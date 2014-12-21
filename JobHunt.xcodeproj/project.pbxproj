@@ -19,6 +19,8 @@
 		AA9561EA1A4542670027361A /* JHHTTPConnecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561E91A4542670027361A /* JHHTTPConnecter.swift */; };
 		AA9561EE1A455F180027361A /* JHArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561ED1A455F180027361A /* JHArticle.swift */; };
 		AA9561F01A456F520027361A /* JHCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561EF1A456F520027361A /* JHCustomCell.swift */; };
+		AA9561F91A4654AC0027361A /* ASFSharedViewTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9561F81A4654AC0027361A /* ASFSharedViewTransition.m */; };
+		AA9561FB1A46554F0027361A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9561FA1A46554F0027361A /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,10 @@
 		AA9561E91A4542670027361A /* JHHTTPConnecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHHTTPConnecter.swift; sourceTree = "<group>"; };
 		AA9561ED1A455F180027361A /* JHArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHArticle.swift; sourceTree = "<group>"; };
 		AA9561EF1A456F520027361A /* JHCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHCustomCell.swift; sourceTree = "<group>"; };
+		AA9561F41A4654AB0027361A /* JobHunt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JobHunt-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA9561F71A4654AC0027361A /* ASFSharedViewTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFSharedViewTransition.h; sourceTree = "<group>"; };
+		AA9561F81A4654AC0027361A /* ASFSharedViewTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFSharedViewTransition.m; sourceTree = "<group>"; };
+		AA9561FA1A46554F0027361A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +122,12 @@
 		63CC2E0F1A45224A00945AB4 /* JobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				AA9561F71A4654AC0027361A /* ASFSharedViewTransition.h */,
+				AA9561F81A4654AC0027361A /* ASFSharedViewTransition.m */,
 				AA9561DC1A453DC70027361A /* Alamofire.xcodeproj */,
 				63CC2E121A45224A00945AB4 /* AppDelegate.swift */,
 				63CC2E141A45224A00945AB4 /* ViewController.swift */,
+				AA9561FA1A46554F0027361A /* DetailViewController.swift */,
 				AA9561EF1A456F520027361A /* JHCustomCell.swift */,
 				AA9561E91A4542670027361A /* JHHTTPConnecter.swift */,
 				AA9561ED1A455F180027361A /* JHArticle.swift */,
@@ -127,6 +136,7 @@
 				63CC2E1B1A45224A00945AB4 /* LaunchScreen.xib */,
 				63CC2E101A45224A00945AB4 /* Supporting Files */,
 				18A8B0471A458CE100B92804 /* SwipeBetweenViewControllers.swift */,
+				AA9561F41A4654AB0027361A /* JobHunt-Bridging-Header.h */,
 			);
 			path = JobHunt;
 			sourceTree = "<group>";
@@ -295,6 +305,8 @@
 				AA9561EA1A4542670027361A /* JHHTTPConnecter.swift in Sources */,
 				63CC2E131A45224A00945AB4 /* AppDelegate.swift in Sources */,
 				AA9561F01A456F520027361A /* JHCustomCell.swift in Sources */,
+				AA9561F91A4654AC0027361A /* ASFSharedViewTransition.m in Sources */,
+				AA9561FB1A46554F0027361A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,9 +429,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = JobHunt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JobHunt/JobHunt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -427,9 +442,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = JobHunt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JobHunt/JobHunt-Bridging-Header.h";
 			};
 			name = Release;
 		};
