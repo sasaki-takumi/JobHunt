@@ -133,8 +133,8 @@
 				AA9561ED1A455F180027361A /* JHArticle.swift */,
 				63CC2E161A45224A00945AB4 /* Main.storyboard */,
 				63CC2E191A45224A00945AB4 /* Images.xcassets */,
-				63CC2E1B1A45224A00945AB4 /* LaunchScreen.xib */,
 				63CC2E101A45224A00945AB4 /* Supporting Files */,
+				63CC2E1B1A45224A00945AB4 /* LaunchScreen.xib */,
 				18A8B0471A458CE100B92804 /* SwipeBetweenViewControllers.swift */,
 				AA9561F41A4654AB0027361A /* JobHunt-Bridging-Header.h */,
 			);

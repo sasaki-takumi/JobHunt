@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-       
         
         
         var pageController:UIPageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
@@ -53,8 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationController.viewControllerArray = [demo,demo2,demo3,demo4]
         navigationController.buttonText = ["ノウハウ","キャリア","マナー","疲労回復"]
+        //navigationController.navigationBar.barTintColor = [UIColor redColor]
         self.window?.rootViewController = navigationController
-        
+        //demo.navigationController?.navigationBar.barTintColor
         
         
          ASFSharedViewTransition.addTransitionWithFromViewControllerClass(ViewController.self, toViewControllerClass: DetailViewController.self, withNavigationController: self.window?.rootViewController as UINavigationController, withDuration: 0.2)

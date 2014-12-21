@@ -31,6 +31,8 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+
 //        JHHTTPConnecter.sharedInstance.requestGuidesideWithGuideId("1928")
 //        self.nouhauCollectionView.registerClass(JHCustomCell.self, forCellWithReuseIdentifier: "cell")
         

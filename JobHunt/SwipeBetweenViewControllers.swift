@@ -96,9 +96,36 @@ class SwipeBetweenViewControllers: UINavigationController,UIPageViewControllerDe
             navigationView.addSubview(button)
             
             button.tag = i //%%% IMPORTANT: if you make your own custom buttons, you have to tag them appropriately
-            button.backgroundColor = UIColor(red: 0.03, green: 0.07, blue: 0.08, alpha: 1) //%%% buttoncolors
+            
+            switch button.tag{
+            case 0:
+            button.backgroundColor = UIColor.redColor() //%%% buttoncolors
+
+            break
+            case 1:
+            button.backgroundColor = UIColor.blueColor() //%%% buttoncolors
+
+                break
+                
+            case 2:
+            button.backgroundColor = UIColor.orangeColor() //%%% buttoncolors
+
+                break
+                
+            case 3:
+            button.backgroundColor = UIColor.greenColor() //%%% buttoncolors
+
+                break
+             
+            default:
+                
+                break
+            }
+            
+            
             button.addTarget(self, action: "tapSegmentButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
             button.setTitle(buttonText[i], forState:UIControlState.Normal) //%%%buttontitle
+            button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         }
         
         pageController.navigationController?.navigationBar.topItem?.titleView = navigationView
