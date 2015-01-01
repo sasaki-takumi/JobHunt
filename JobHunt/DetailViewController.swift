@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
 
      override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1500)
+//        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000)
 
         
     }
@@ -51,7 +51,7 @@ class DetailViewController: UIViewController {
         
         println(article_id)
         
-        var urlStr:URLStringConvertible = "http://api.allabout.co.jp/allabout/article/contents/\(article_id)/1"
+        var urlStr:URLStringConvertible = "http://api.allabout.co.jp/allabout/article/contents/\(article_id)"
         
         Alamofire.request(.GET, urlStr)
             .responseJSON { (request, response, JSON, error) -> Void in
@@ -74,12 +74,35 @@ class DetailViewController: UIViewController {
                             
                             var topimg:String = dic["article_topimg"] as String
                             
-                            println(contentHtml)
+//                            println(contentHtml)
+                            
+                            var reg:NSRegularExpression = NSRegularExpression()
                             
                             
                             self.abstractView.text = abstract
                             self.titleLabel.text = title
-                            self.contentView.text = contentHtml
+                            
+                            var error:NSError?
+                            
+                            self.contentView.attributedText = NSAttributedString(
+                                data: contentHtml.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+                                options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType],
+                                documentAttributes: nil,
+                                error: &error)
+                            
+                            var newFrame:CGRect = self.contentView.frame
+                            var str:NSString = self.contentView.text as NSString
+                            var size1:CGSize = str.sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(30.0)])
+                            
+                            newFrame.size.height = size1.height
+                            
+                            self.contentView.frame = newFrame
+
+                            
+                            self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 550+size1.height)
+                            
+                            println(size1.height)
+                            
                             
                             let url = NSURL(string:topimg);
                             
