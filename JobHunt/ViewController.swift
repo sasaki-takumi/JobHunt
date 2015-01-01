@@ -49,7 +49,6 @@ class ViewController: UIViewController, UICollectionViewDataSource ,UICollection
     }
     
     
-    
     func getGuidesites(guideId:String){
         
         var urlStr:URLStringConvertible = "http://api.allabout.co.jp/allabout/guidesite/latest/\(guideId)"
